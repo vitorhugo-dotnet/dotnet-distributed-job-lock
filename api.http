@@ -1,4 +1,6 @@
-@worker = http://localhost:8080
+# Local (`dotnet run`): porta 5079.
+# Docker com `--scale`: a porta e sorteada por replica — veja `docker compose ps`.
+@worker = http://localhost:5079
 
 ### Saude da instancia (mostra qual worker respondeu)
 GET {{worker}}/health
