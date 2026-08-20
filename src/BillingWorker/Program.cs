@@ -1,4 +1,5 @@
 using BillingWorker;
+using BillingWorker.Endpoints;
 using BillingWorker.Persistence;
 using Quartz;
 
@@ -24,6 +25,7 @@ var app = builder.Build();
 DatabaseMigrator.Run(connectionString);
 
 app.MapGet("/health", () => Results.Ok(new { status = "UP", instance = identity.Id }));
+app.MapJobEndpoints();
 
 app.Logger.LogInformation("[{Instance}] worker no ar", identity.Id);
 

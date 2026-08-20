@@ -1,0 +1,13 @@
+@worker = http://localhost:8080
+
+### Saude da instancia (mostra qual worker respondeu)
+GET {{worker}}/health
+
+### Status da ultima execucao do job
+GET {{worker}}/jobs/billing-close/status
+
+### Disparar o job agora (pode executar em outra instancia do cluster)
+POST {{worker}}/jobs/billing-close/run-now
+
+### Repor faturas pendentes para uma nova demonstracao
+POST {{worker}}/invoices/seed?count=25
