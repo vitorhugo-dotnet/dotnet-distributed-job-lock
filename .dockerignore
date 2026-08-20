@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/.idea/
+.git/
+docs/
+tests/
+TestResults/
