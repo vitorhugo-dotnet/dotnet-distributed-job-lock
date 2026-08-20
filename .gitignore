@@ -1,0 +1,16 @@
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userprefs
+.vs/
+.vscode/
+.idea/
+TestResults/
+*.coverage
+*.trx
+coverage*.json
+coverage*.xml
