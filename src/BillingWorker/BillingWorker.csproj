@@ -10,6 +10,8 @@
     <PackageReference Include="Dapper" Version="2.1.79" />
     <PackageReference Include="dbup-postgresql" Version="7.0.1" />
     <PackageReference Include="Npgsql" Version="10.0.3" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.19.1" />
+    <PackageReference Include="Quartz.Serialization.Json" Version="3.19.1" />
   </ItemGroup>
 
   <ItemGroup>
