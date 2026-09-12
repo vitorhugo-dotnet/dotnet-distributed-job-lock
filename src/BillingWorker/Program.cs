@@ -11,6 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("Postgres")
 
 builder.Services.AddBillingServices(builder.Configuration);
 builder.Services.AddBillingScheduler(builder.Configuration);
+builder.Services.AddRazorPages();
 builder.Services.AddQuartzHostedService(options =>
 {
     // Terminar o job em andamento antes de morrer evita deixar uma linha
@@ -26,6 +27,7 @@ DatabaseMigrator.Run(connectionString);
 
 app.MapGet("/health", () => Results.Ok(new { status = "UP", instance = identity.Id }));
 app.MapJobEndpoints();
+app.MapRazorPages();
 
 app.Logger.LogInformation("[{Instance}] worker no ar", identity.Id);
 

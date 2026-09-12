@@ -82,6 +82,18 @@ public class JobEndpointsTests(WorkerAppFixture fixture) : IClassFixture<WorkerA
         Assert.Equal("worker-teste", health.GetProperty("instance").GetString());
     }
 
+    [Fact]
+    public async Task DashboardExibeControlesParaAcompanharEExecutarOJob()
+    {
+        var resposta = await fixture.Client.GetAsync("/dashboard");
+        var html = await resposta.Content.ReadAsStringAsync();
+
+        Assert.Equal(HttpStatusCode.OK, resposta.StatusCode);
+        Assert.Contains("Monitor de jobs", html);
+        Assert.Contains("Executar agora", html);
+        Assert.Contains("Criar faturas pendentes", html);
+    }
+
     private async Task EsperarExecucaoAsync()
     {
         var limite = DateTime.UtcNow + TimeSpan.FromSeconds(30);
